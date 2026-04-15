@@ -11,7 +11,7 @@ from datetime import datetime
 from openai import OpenAI
 
 # === CONFIG ===
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDCe6k3rGR3jmheHhiAM8oku2kMhTzaSZM")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_DIR = os.path.join(REPO_DIR, "posts")
 MODEL = "gemini-2.5-flash-lite"
