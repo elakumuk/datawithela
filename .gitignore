@@ -1,3 +1,5 @@
 *.pyc
 __pycache__/
 .env
+run_daily.sh
+autopilot.log
