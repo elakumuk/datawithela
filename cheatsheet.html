@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free SQL cheat sheet for data analysts. JOIN types, GROUP BY, CASE, subqueries, window functions - all on one page.">
+    <title>Free SQL Cheat Sheet | DataWithEla</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; color: #1a1a1a; background: #fafaf8; line-height: 1.7; }
+        header { background: linear-gradient(135deg, #0f1b2d 0%, #1c3b2e 100%); color: white; padding: 60px 20px; text-align: center; }
+        header a { color: white; text-decoration: none; font-size: 1.2em; font-weight: bold; }
+        nav { background: #fff; border-bottom: 1px solid #e0e0e0; padding: 15px 20px; text-align: center; position: sticky; top: 0; z-index: 10; }
+        nav a { text-decoration: none; color: #0f1b2d; margin: 0 20px; font-size: 0.95em; font-weight: 600; }
+        nav a:hover { color: #1c3b2e; border-bottom: 2px solid #1c3b2e; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 2em; color: #0f1b2d; margin-bottom: 10px; }
+        .subtitle { color: #666; margin-bottom: 30px; font-size: 1.1em; }
+        h2 { font-size: 1.3em; color: #1c3b2e; margin: 30px 0 10px; border-bottom: 2px solid #1c3b2e; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
+        th { background: #0f1b2d; color: white; padding: 10px; text-align: left; }
+        td { padding: 8px 10px; border-bottom: 1px solid #e0e0e0; }
+        tr:hover { background: #f5f5f0; }
+        code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        pre { background: #1a1a2e; color: #e0e0e0; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 15px 0; font-size: 0.85em; }
+        .download-box { background: linear-gradient(135deg, #1c3b2e, #0f1b2d); color: white; border-radius: 12px; padding: 40px; text-align: center; margin: 40px 0; }
+        .download-box h2 { color: white; border: none; margin-bottom: 10px; }
+        .download-box p { opacity: 0.85; margin-bottom: 20px; }
+        .download-box input { padding: 12px 16px; border: none; border-radius: 6px; width: 260px; font-size: 1em; margin-right: 8px; }
+        .download-box button { padding: 12px 24px; background: #27ae60; color: white; border: none; border-radius: 6px; font-size: 1em; cursor: pointer; font-weight: 700; }
+        .download-box button:hover { background: #2ecc71; }
+        .tip { background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 15px; margin: 15px 0; border-radius: 0 6px 6px 0; font-size: 0.9em; }
+        footer { text-align: center; padding: 30px; color: #999; font-size: 0.85em; border-top: 1px solid #e8e8e8; }
+        footer a { color: #666; text-decoration: none; }
+        @media (max-width: 600px) { .download-box input { width: 100%; margin-bottom: 10px; } }
+    </style>
+</head>
+<body>
+
+<header><a href="index.html">DataWithEla</a></header>
+<nav>
+    <a href="index.html">Articles</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tool Comparisons</a>
+    <a href="cheatsheet.html">Free SQL Cheat Sheet</a>
+</nav>
+
+<div class="container">
+
+<h1>SQL Cheat Sheet for Data Analysts</h1>
+<p class="subtitle">Everything you need on one page. Bookmark this.</p>
+
+<div class="download-box">
+    <h2>Download the PDF Version</h2>
+    <p>Get the printable cheat sheet — pin it next to your monitor.</p>
+    <input type="email" placeholder="your@email.com">
+    <button>Send Me the PDF</button>
+    <p style="font-size: 0.8em; margin-top: 10px; opacity: 0.6;">No spam. Just the PDF + occasional data tips.</p>
+</div>
+
+<h2>Query Execution Order</h2>
+<p>This is the order SQL <em>thinks</em> in — not the order you write it:</p>
+<table>
+    <tr><th>Step</th><th>Clause</th><th>What it does</th></tr>
+    <tr><td>1</td><td><code>FROM / JOIN</code></td><td>Pick tables, combine rows</td></tr>
+    <tr><td>2</td><td><code>WHERE</code></td><td>Filter individual rows</td></tr>
+    <tr><td>3</td><td><code>GROUP BY</code></td><td>Collapse rows into groups</td></tr>
+    <tr><td>4</td><td><code>HAVING</code></td><td>Filter groups</td></tr>
+    <tr><td>5</td><td><code>SELECT</code></td><td>Choose columns, compute expressions</td></tr>
+    <tr><td>6</td><td><code>ORDER BY</code></td><td>Sort results</td></tr>
+</table>
+
+<div class="tip">This is why you can't use aliases from SELECT in WHERE — SELECT runs after WHERE.</div>
+
+<h2>JOIN Types</h2>
+<table>
+    <tr><th>Type</th><th>What it keeps</th><th>Use when</th></tr>
+    <tr><td><code>INNER JOIN</code></td><td>Only matching rows from both</td><td>"Show customers who have rentals"</td></tr>
+    <tr><td><code>LEFT JOIN</code></td><td>All left + matched right (NULL if no match)</td><td>"Show ALL customers, even with 0 rentals"</td></tr>
+    <tr><td><code>CROSS JOIN</code></td><td>Every combination (m × n)</td><td>Generating all possible pairs</td></tr>
+    <tr><td><code>SELF JOIN</code></td><td>Same table twice with different aliases</td><td>"Find pairs sharing same attribute"</td></tr>
+</table>
+
+<div class="tip"><strong>LEFT JOIN trap:</strong> After LEFT JOIN, use <code>COUNT(right_table.id)</code> not <code>COUNT(*)</code>. COUNT(*) counts the NULL-padded row as 1.</div>
+
+<h2>Aggregation</h2>
+<table>
+    <tr><th>Function</th><th>Does</th><th>NULL behavior</th></tr>
+    <tr><td><code>COUNT(*)</code></td><td>Counts rows</td><td>Counts everything</td></tr>
+    <tr><td><code>COUNT(col)</code></td><td>Counts non-NULL values</td><td>Skips NULLs</td></tr>
+    <tr><td><code>SUM(col)</code></td><td>Adds values</td><td>Skips NULLs</td></tr>
+    <tr><td><code>AVG(col)</code></td><td>Average of non-NULLs</td><td>Skips NULLs (denominator shrinks!)</td></tr>
+    <tr><td><code>MIN/MAX(col)</code></td><td>Smallest/largest</td><td>Skips NULLs</td></tr>
+</table>
+
+<h2>CASE Expression</h2>
+<pre>
+CASE
+  WHEN amount > 10 THEN 'High'    -- most restrictive FIRST
+  WHEN amount > 5  THEN 'Medium'
+  WHEN amount > 0  THEN 'Low'
+  ELSE 'Free'                     -- always include ELSE
+END AS category
+</pre>
+
+<div class="tip"><strong>Order matters!</strong> CASE evaluates top-to-bottom and stops at the first TRUE. Put the most restrictive condition first.</div>
+
+<h2>Conditional Aggregation (Pivot Pattern)</h2>
+<pre>
+-- Count how many large payments
+SUM(CASE WHEN amount > 10 THEN 1 ELSE 0 END) AS big_count
+
+-- Sum the value of large payments
+SUM(CASE WHEN amount > 10 THEN amount ELSE 0 END) AS big_total
+
+-- Pivot rows to columns
+SUM(CASE WHEN month = 'Jan' THEN revenue ELSE 0 END) AS jan_rev,
+SUM(CASE WHEN month = 'Feb' THEN revenue ELSE 0 END) AS feb_rev
+</pre>
+
+<h2>Subquery Shapes</h2>
+<table>
+    <tr><th>Shape</th><th>Returns</th><th>Use with</th></tr>
+    <tr><td><strong>Scalar</strong></td><td>1 row × 1 col</td><td><code>=, <, >, BETWEEN</code></td></tr>
+    <tr><td><strong>List</strong></td><td>many rows × 1 col</td><td><code>IN, NOT IN, EXISTS</code></td></tr>
+    <tr><td><strong>Table</strong></td><td>many rows × many cols</td><td><code>FROM (...) t</code> (derived table)</td></tr>
+</table>
+
+<div class="tip"><strong>NOT IN + NULL = empty result!</strong> If the subquery can return NULLs, use <code>NOT EXISTS</code> instead or add <code>WHERE col IS NOT NULL</code> inside the subquery.</div>
+
+<h2>EXISTS vs IN</h2>
+<pre>
+-- EXISTS: "does at least one matching row exist?"
+WHERE EXISTS (SELECT 1 FROM rental r WHERE r.customer_id = c.customer_id)
+
+-- IN: "is this value in the list?"
+WHERE customer_id IN (SELECT customer_id FROM rental)
+
+-- Use EXISTS when NULLs are a concern — it's NULL-safe
+</pre>
+
+<h2>Self JOIN Pattern</h2>
+<pre>
+-- Find pairs (e.g., actors with same last name)
+SELECT a1.first_name, a1.last_name, a2.first_name, a2.last_name
+FROM actor a1
+JOIN actor a2 ON a1.last_name = a2.last_name
+WHERE a1.actor_id &lt; a2.actor_id;   -- use &lt; not &lt;&gt;
+</pre>
+
+<div class="tip"><strong>Use &lt; not &lt;&gt;</strong> — this prevents both self-matches AND duplicate pairs in one condition.</div>
+
+<h2>Derived Tables</h2>
+<pre>
+-- "Customers who spent more than average customer"
+SELECT * FROM (
+  SELECT customer_id, SUM(amount) AS total
+  FROM payment GROUP BY customer_id
+) t
+WHERE total > (
+  SELECT AVG(total) FROM (
+    SELECT customer_id, SUM(amount) AS total
+    FROM payment GROUP BY customer_id
+  ) x
+);
+</pre>
+
+<div class="tip">Every derived table needs an alias: <code>(...) t</code>. Without it, you get an error.</div>
+
+<div class="download-box">
+    <h2>Get the Printable PDF</h2>
+    <p>This entire cheat sheet as a clean, printable PDF. Free.</p>
+    <input type="email" placeholder="your@email.com">
+    <button>Send Me the PDF</button>
+</div>
+
+</div>
+
+<footer>
+    <p><a href="index.html">&larr; Back to DataWithEla</a> &middot; &copy; 2026</p>
+</footer>
+
+</body>
+</html>
