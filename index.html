@@ -7,14 +7,12 @@
     <meta name="description" content="Data analytics career guides, SQL tutorials, AI/ML insights. Break into data science with practical advice from someone who's done it.">
     <title>DataWithEla — Data Analytics Career & AI Insights</title>
 
-    <!-- Open Graph / Social Media -->
     <meta property="og:title" content="DataWithEla — Data Analytics Career & AI Insights">
-    <meta property="og:description" content="Practical data analytics, AI, and career advice. SQL tutorials, tool comparisons, and real talk about breaking into data.">
+    <meta property="og:description" content="Practical data analytics, AI, and career advice from someone building the career in real time.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elakumuk.github.io/datawithela/">
+    <meta property="og:url" content="https://datawithela.netlify.app/">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Google Analytics — replace G-J4HLFZHC96 with your ID from analytics.google.com -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4HLFZHC96"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -23,528 +21,183 @@
       gtag('config', 'G-J4HLFZHC96');
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --bg: #0a0a0b;
+            --bg2: #111113;
+            --bg3: #1a1a1f;
+            --border: #2a2a30;
+            --text: #e4e4e7;
+            --text2: #a1a1aa;
+            --accent: #6366f1;
+            --accent2: #818cf8;
+            --green: #22c55e;
+            --green2: #4ade80;
+            --blue: #3b82f6;
+            --orange: #f97316;
+            --pink: #ec4899;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Georgia', serif; color: #1a1a1a; background: #fafaf8; line-height: 1.7; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-        header {
-            background: linear-gradient(135deg, #0f1b2d 0%, #1c3b2e 100%);
-            color: white; padding: 80px 20px; text-align: center;
-        }
-        header h1 { font-size: 2.8em; letter-spacing: -1px; margin-bottom: 10px; }
-        header p { font-size: 1.15em; opacity: 0.85; max-width: 600px; margin: 0 auto; }
+        .hero { position: relative; padding: 100px 20px 80px; text-align: center; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(99,102,241,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(34,197,94,0.1) 0%, transparent 50%), radial-gradient(circle at 50% 80%, rgba(236,72,153,0.08) 0%, transparent 50%); animation: gradientMove 15s ease-in-out infinite; z-index: 0; }
+        @keyframes gradientMove { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 33% { transform: translate(30px, -30px) rotate(1deg); } 66% { transform: translate(-20px, 20px) rotate(-1deg); } }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--bg3); border: 1px solid var(--border); border-radius: 100px; padding: 6px 16px; font-size: 0.8em; color: var(--text2); margin-bottom: 24px; }
+        .hero-badge .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .hero h1 { font-size: 3.5em; font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 16px; background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.15em; color: var(--text2); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+        .hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 40px; }
+        .hero-stat { text-align: center; }
+        .hero-stat .number { font-size: 2em; font-weight: 800; color: var(--accent2); font-family: 'JetBrains Mono', monospace; }
+        .hero-stat .label { font-size: 0.8em; color: var(--text2); margin-top: 4px; }
 
-        nav {
-            background: #fff; border-bottom: 1px solid #e0e0e0;
-            padding: 15px 20px; text-align: center; position: sticky; top: 0; z-index: 10;
-        }
-        nav a { text-decoration: none; color: #0f1b2d; margin: 0 20px; font-size: 0.95em; font-weight: 600; }
-        nav a:hover { color: #1c3b2e; border-bottom: 2px solid #1c3b2e; padding-bottom: 2px; }
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 14px 20px; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-weight: 800; font-size: 1.1em; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+        .nav-links a { text-decoration: none; color: var(--text2); margin-left: 28px; font-size: 0.9em; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 60px 0 24px; }
+        .section-header h2 { font-size: 1.4em; font-weight: 700; letter-spacing: -0.5px; }
+        .section-tag { font-size: 0.75em; color: var(--accent2); background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); padding: 4px 12px; border-radius: 100px; font-weight: 500; }
 
-        .intro { font-size: 1.1em; color: #444; margin-bottom: 40px; border-left: 4px solid #1c3b2e; padding-left: 20px; }
+        .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .post-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
+        .post-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--green), var(--pink)); opacity: 0; transition: opacity 0.3s; }
+        .post-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .post-card:hover::before { opacity: 1; }
+        .post-card .tag-row { margin-bottom: 12px; }
+        .tag { display: inline-block; font-size: 0.7em; font-weight: 600; padding: 3px 8px; border-radius: 6px; margin-right: 4px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tag-ai { background: rgba(99,102,241,0.15); color: var(--accent2); }
+        .tag-sql { background: rgba(34,197,94,0.15); color: var(--green2); }
+        .tag-career { background: rgba(249,115,22,0.15); color: var(--orange); }
+        .tag-tools { background: rgba(236,72,153,0.15); color: var(--pink); }
+        .tag-data { background: rgba(59,130,246,0.15); color: var(--blue); }
+        .post-card h3 { font-size: 1.05em; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.3px; line-height: 1.4; }
+        .post-card h3 a { text-decoration: none; color: var(--text); transition: color 0.2s; }
+        .post-card h3 a:hover { color: var(--accent2); }
+        .post-card .excerpt { font-size: 0.85em; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
+        .post-card .meta { font-size: 0.75em; color: #52525b; font-family: 'JetBrains Mono', monospace; }
 
-        h2 { font-size: 1.6em; color: #0f1b2d; margin: 40px 0 20px; }
+        .featured { grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; background: linear-gradient(135deg, var(--bg2), var(--bg3)); }
+        .featured .featured-content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .featured .featured-visual { background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(34,197,94,0.1)); display: flex; align-items: center; justify-content: center; font-size: 5em; border-radius: 0 12px 12px 0; }
+        .featured h3 { font-size: 1.5em; }
+        .featured .excerpt { font-size: 0.95em; }
 
-        .post-card {
-            background: #fff; border: 1px solid #e8e8e8; border-radius: 8px;
-            padding: 30px; margin-bottom: 20px; transition: box-shadow 0.2s;
-        }
-        .post-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .post-card h3 { font-size: 1.3em; margin-bottom: 8px; }
-        .post-card h3 a { text-decoration: none; color: #0f1b2d; }
-        .post-card h3 a:hover { color: #1c3b2e; }
-        .post-card .meta { font-size: 0.85em; color: #888; margin-bottom: 10px; }
-        .post-card p { color: #555; font-size: 0.95em; }
-        .tag { display: inline-block; background: #f0f4f0; color: #1c3b2e; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+        .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+        .resource-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; text-decoration: none; color: var(--text); transition: all 0.3s; }
+        .resource-card:hover { border-color: var(--green); transform: translateY(-2px); }
+        .resource-card .icon { font-size: 2em; margin-bottom: 12px; }
+        .resource-card h3 { font-size: 1em; margin-bottom: 6px; font-weight: 700; }
+        .resource-card p { font-size: 0.8em; color: var(--text2); }
 
-        .about-box {
-            background: #fff; border: 1px solid #e8e8e8; border-radius: 8px;
-            padding: 30px; margin: 40px 0; display: flex; gap: 20px; align-items: start;
-        }
-        .about-box .text h3 { margin-bottom: 8px; }
-        .about-box .text p { color: #555; font-size: 0.95em; }
+        .newsletter { background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,197,94,0.05)); border: 1px solid var(--border); border-radius: 16px; padding: 48px; text-align: center; margin: 60px 0; }
+        .newsletter h2 { font-size: 1.8em; font-weight: 800; margin-bottom: 8px; letter-spacing: -1px; }
+        .newsletter p { color: var(--text2); margin-bottom: 24px; }
+        .newsletter-form { display: flex; gap: 8px; max-width: 420px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 12px 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95em; font-family: 'Inter', sans-serif; outline: none; }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form button { padding: 12px 24px; background: var(--accent); color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 0.95em; cursor: pointer; transition: background 0.2s; font-family: 'Inter', sans-serif; }
+        .newsletter-form button:hover { background: var(--accent2); }
 
-        .subscribe {
-            background: #0f1b2d; color: white; border-radius: 8px;
-            padding: 40px; text-align: center; margin: 40px 0;
-        }
-        .subscribe h3 { font-size: 1.4em; margin-bottom: 10px; }
-        .subscribe p { opacity: 0.8; margin-bottom: 20px; }
-        .subscribe input {
-            padding: 12px 16px; border: none; border-radius: 6px; width: 250px;
-            font-size: 1em; margin-right: 8px;
-        }
-        .subscribe button {
-            padding: 12px 24px; background: #1c3b2e; color: white; border: none;
-            border-radius: 6px; font-size: 1em; cursor: pointer; font-weight: 600;
-        }
-        .subscribe button:hover { background: #2a5a42; }
+        footer { border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; color: #52525b; font-size: 0.85em; }
+        footer a { color: var(--text2); text-decoration: none; margin: 0 12px; }
+        footer a:hover { color: var(--text); }
 
-        footer {
-            text-align: center; padding: 30px 20px; color: #999; font-size: 0.85em;
-            border-top: 1px solid #e8e8e8; margin-top: 40px;
-        }
-        footer a { color: #666; text-decoration: none; margin: 0 10px; }
-
-        @media (max-width: 600px) {
-            header h1 { font-size: 2em; }
-            .subscribe input { width: 100%; margin-bottom: 10px; }
-            .about-box { flex-direction: column; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .hero-stats { gap: 20px; }
+            .hero-stat .number { font-size: 1.5em; }
+            .post-grid { grid-template-columns: 1fr; }
+            .featured { grid-column: span 1; grid-template-columns: 1fr; }
+            .featured .featured-visual { display: none; }
+            .resource-grid { grid-template-columns: 1fr; }
+            .nav-links a { margin-left: 16px; font-size: 0.8em; }
+            .newsletter { padding: 32px 20px; }
+            .newsletter-form { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>DataWithEla</h1>
-    <p>Practical data analytics, AI, and career advice — from someone building the career in real time.</p>
-</header>
-
 <nav>
-    <a href="#articles">Articles</a>
-    <a href="about.html">About</a>
-    <a href="tools.html">Tool Comparisons</a>
-    <a href="cheatsheet.html">Free SQL Cheat Sheet</a>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">DataWithEla</a>
+        <div class="nav-links">
+            <a href="#articles">Articles</a>
+            <a href="tools.html">Tools</a>
+            <a href="cheatsheet.html">SQL Cheat Sheet</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
 </nav>
+
+<div class="hero">
+    <div class="hero-content">
+        <div class="hero-badge"><span class="dot"></span> New articles published daily</div>
+        <h1>Data analytics.<br>Decoded.</h1>
+        <p>Career guides, SQL deep-dives, AI tool reviews, and honest advice for people breaking into data — written by someone doing it right now.</p>
+        <div class="hero-stats">
+            <div class="hero-stat"><div class="number">37+</div><div class="label">Articles</div></div>
+            <div class="hero-stat"><div class="number">12</div><div class="label">Topics</div></div>
+            <div class="hero-stat"><div class="number">Daily</div><div class="label">New Content</div></div>
+        </div>
+    </div>
+</div>
 
 <div class="container">
 
-    <p class="intro">
-        Business analytics grad student, former D2C brand founder, and someone who learned SQL, Python, and machine learning by doing, not just studying. This blog is where I share what actually works.
-    </p>
-
-    <h2 id="articles">Latest Articles</h2>
-
-    <div class="post-card">
-        <h3><a href="posts/automl-flaml-vs-autogluon.html">I Tested Two AutoML Frameworks So You Don't Have To: FLAML vs AutoGluon</a></h3>
-        <div class="meta">April 2026 &middot; 8 min read</div>
-        <p>I ran both frameworks on the same credit risk dataset with a 300-second budget. Here's what surprised me about which one won — and why the answer depends on what you're optimizing for.</p>
-        <span class="tag">AutoML</span><span class="tag">Python</span><span class="tag">Machine Learning</span>
+    <div class="section-header"><h2>Quick Resources</h2><span class="section-tag">Most Popular</span></div>
+    <div class="resource-grid">
+        <a href="cheatsheet.html" class="resource-card"><div class="icon">&#128203;</div><h3>SQL Cheat Sheet</h3><p>JOINs, GROUP BY, CASE, subqueries — all on one page. Free.</p></a>
+        <a href="tools.html" class="resource-card"><div class="icon">&#9878;</div><h3>Tool Comparisons</h3><p>Tableau vs Power BI, Python vs R, ChatGPT vs Claude. Honest reviews.</p></a>
+        <a href="posts/ai-replacing-data-analysts.html" class="resource-card"><div class="icon">&#129302;</div><h3>Will AI Replace You?</h3><p>We looked at the data. The answer is more nuanced than you think.</p></a>
     </div>
 
-    <div class="post-card">
-        <h3><a href="posts/sql-count-trap.html">The SQL Trap That Will Cost You Points on Every Exam (COUNT(*) vs COUNT(column))</a></h3>
-        <div class="meta">April 2026 &middot; 5 min read</div>
-        <p>LEFT JOIN + COUNT(*) silently gives you wrong answers. I learned this the hard way. Here's the one rule you need to remember.</p>
-        <span class="tag">SQL</span><span class="tag">Data Analytics</span><span class="tag">Career</span>
-    </div>
-
-
-    <div class="post-card">
-        <h3><a href="posts/f1-student-data-career.html">Getting a Data Job as an F-1 Student: What Nobody Tells You</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>H-1B sponsorship, OPT timing, which companies actually hire internationals, and how to position yourself when 90% of applicants are domestic. Real talk from someone going through it.</p>
-        <span class="tag">Career</span><span class="tag">F-1 Visa</span><span class="tag">Job Search</span>
-    </div>
-
-    <div class="post-card">
-        <h3><a href="posts/dtc-founder-to-analyst.html">What Running a D2C Brand Taught Me About Data That School Never Could</a></h3>
-        <div class="meta">March 2026 &middot; 6 min read</div>
-        <p>I stared at my own conversion rates at 2 AM. I watched abandoned carts spike after a pricing change. Three years of running my own brand taught me that data only matters when it changes a decision.</p>
-        <span class="tag">E-commerce</span><span class="tag">Startup</span><span class="tag">Analytics</span>
-    </div>
-
-    <div class="post-card">
-        <h3><a href="posts/highest-paying-data-skills-2026-job-postings.html">Top Data Skills Paying Big in 2026? Job Postings Spill!</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Curious about the most lucrative data skills for 2026? We dug into job postings to reveal the tech talents commanding the highest salaries. Get ahead!</p>
-        <span class="tag">data skills</span><span class="tag">AI</span><span class="tag">data analytics</span><span class="tag">career advice</span><span class="tag">salary trends</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-science-bootcamps-2026-worth-it.html">Data Science Bootcamps in 2026: Worth It?</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Are data science bootcamps still a good investment in 2026? Let's dive into the data and see if they deliver on their promises.</p>
-        <span class="tag">data science</span><span class="tag">bootcamps</span><span class="tag">career change</span><span class="tag">tech jobs</span><span class="tag">analytics</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/ai-trends-data-analytics-2026.html">AI Trends: Your Data Analytics Roadmap to 2026</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock your data analytics career! Discover 5 essential AI trends you need to master by April 2026 to stay ahead.</p>
-        <span class="tag">data analytics</span><span class="tag">artificial intelligence</span><span class="tag">AI trends</span><span class="tag">tech careers</span><span class="tag">future of data</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/free-sql-learning-tools-2026.html">Master SQL for Free in 2026: Your Ultimate Guide</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock your data career potential! Discover the best free tools and resources to learn SQL in 2026. Your roadmap to becoming a data pro.</p>
-        <span class="tag">SQL</span><span class="tag">Data Analytics</span><span class="tag">Tech Careers</span><span class="tag">Free Learning</span><span class="tag">2026</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/free-sql-learning-tools-2026.html">Master SQL for Free: Your 2026 Learning Roadmap</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock your data career! Discover the best FREE tools and resources to learn SQL in 2026. Your actionable guide to mastering this essential skill.</p>
-        <span class="tag">SQL</span><span class="tag">Data Analytics</span><span class="tag">Tech Careers</span><span class="tag">Free Resources</span><span class="tag">2026</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/ai-data-analytics-predictive-power-2026.html">AI & Data Analytics: Predicting the Future (It's Here!)</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Curious how AI is revolutionizing data analytics by 2026? Discover the predictive power and actionable insights for aspiring professionals.</p>
-        <span class="tag">AI</span><span class="tag">Data Analytics</span><span class="tag">Machine Learning</span><span class="tag">Predictive Analytics</span><span class="tag">Tech Careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/2026-data-analytics-ai-automation-career.html">2026 Data Analytics: AI, Automation & Your Career</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Curious about 2026 data analytics? Discover how AI & automation are shaping the field and what it means for your career path. Get actionable insights!</p>
-        <span class="tag">data analytics</span><span class="tag">AI</span><span class="tag">automation</span><span class="tag">career path</span><span class="tag">future of tech</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/remote-data-analyst-jobs-guide.html">Unlock Remote Data Analyst Jobs: Your Guide</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Dreaming of a remote data analyst career? Discover where to find these in-demand jobs and get actionable tips to land your dream role.</p>
-        <span class="tag">data analysis</span><span class="tag">remote jobs</span><span class="tag">career advice</span><span class="tag">tech jobs</span><span class="tag">job search</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/ai-april-fools-algorithmic-deception-2026.html">AI's April Fools' Pranks: Spot Algorithmic Deception in 2026</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>As AI gets smarter, so do its pranks. Learn how data analysts can spot and prevent algorithmic deception by 2026, with practical tips and insights.</p>
-        <span class="tag">AI</span><span class="tag">Data Analysis</span><span class="tag">Algorithmic Deception</span><span class="tag">Tech Careers</span><span class="tag">2026</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/generative-ai-data-analyst-tools-2026.html">Gen AI for Analysts: 5 Tools to Supercharge Your 2026 Workflow</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock your potential! Discover the top 5 Generative AI tools data analysts will rely on in 2026 to boost productivity, streamline workflows, and land dream jobs.</p>
-        <span class="tag">Generative AI</span><span class="tag">Data Analysis</span><span class="tag">Productivity Tools</span><span class="tag">Tech Careers</span><span class="tag">AI for Analysts</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/prompt-engineering-data-analysis-llms.html">Prompt Engineering: Your Data Analysis Superpower</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock the power of Large Language Models (LLMs) for data analysis. Learn prompt engineering techniques to boost your workflow and gain deeper insights.</p>
-        <span class="tag">prompt engineering</span><span class="tag">data analysis</span><span class="tag">LLMs</span><span class="tag">AI</span><span class="tag">tech careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/generative-ai-data-analysts-superpower.html">Generative AI for Data Analysts: Your New Superpower</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock your potential as a data analyst with generative AI. Learn prompt engineering, predictive modeling, and more to boost your career.</p>
-        <span class="tag">Generative AI</span><span class="tag">Data Analysis</span><span class="tag">Prompt Engineering</span><span class="tag">Predictive Modeling</span><span class="tag">AI Careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/ai-analytics-tools-2026-boost-insights-salary.html">AI Analytics Tools 2026: Boost Insights & Salary</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock the future of data analytics! Discover the top 5 AI-powered tools for 2026 that will sharpen your insights and supercharge your career.</p>
-        <span class="tag">AI</span><span class="tag">Data Analytics</span><span class="tag">Tech Careers</span><span class="tag">Future of Work</span><span class="tag">Machine Learning</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-science-2026-analytics-upgrade.html">Data Science in 2026: Your Analytics Upgrade Path</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Thinking about a data science career in 2026? This guide shows analytics pros how to make the leap, step-by-step, with real data insights.</p>
-        <span class="tag">Data Science</span><span class="tag">Analytics</span><span class="tag">Career Change</span><span class="tag">2026</span><span class="tag">AI</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-engineering-2026-cloud-real-time-career.html">Data Engineering 2026: Cloud, Real-Time & Your Career</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>What does the future of data engineering look like in 2026? Dive into cloud-native architectures, real-time processing, and how to prepare your career.</p>
-        <span class="tag">data engineering</span><span class="tag">cloud computing</span><span class="tag">real-time data</span><span class="tag">data analytics</span><span class="tag">tech careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-analyst-salary-negotiation-2026.html">Data Analyst Salary: Negotiate Like a Pro in 2026</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock your earning potential! Discover proven negotiation tactics for data analysts aiming for top salaries in 2026. Get ready to get paid what you're worth.</p>
-        <span class="tag">data analytics</span><span class="tag">salary negotiation</span><span class="tag">tech careers</span><span class="tag">AI</span><span class="tag">2026</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/snowflake-vs-bigquery-vs-redshift-2026-showdown.html">Snowflake vs. BigQuery vs. Redshift: 2026 Showdown</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Choosing a cloud data warehouse in 2026? Snowflake, BigQuery, and Redshift face off. See the latest on performance, cost, and key features.</p>
-        <span class="tag">cloud data warehousing</span><span class="tag">Snowflake</span><span class="tag">BigQuery</span><span class="tag">Redshift</span><span class="tag">data analytics</span><span class="tag">tech careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/ai-ethics-data-governance-2026-guide.html">AI Ethics & Data Rules: Your 2026 Survival Guide</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Navigating the complex world of ethical AI and data governance in 2026. Essential insights for aspiring data pros.</p>
-        <span class="tag">AI Ethics</span><span class="tag">Data Governance</span><span class="tag">Data Analytics</span><span class="tag">Tech Careers</span><span class="tag">2026 Trends</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-analyst-interview-prep-2026.html">Ace Your Data Analyst Interview: 2026 Prep Guide</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Master your 2026 data analyst interviews! Conquer technical & behavioral questions with this insider prep guide. Get hired!</p>
-        <span class="tag">data analytics</span><span class="tag">interview prep</span><span class="tag">tech careers</span><span class="tag">data science</span><span class="tag">job search</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-viz-2026-tableau-power-bi-ai.html">Data Viz 2026: Tableau, Power BI & AI's New Frontier</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock the future of data visualization in 2026! Explore top tools like Tableau, Power BI, and cutting-edge AI platforms. Your guide to staying ahead.</p>
-        <span class="tag">data visualization</span><span class="tag">tableau</span><span class="tag">power bi</span><span class="tag">artificial intelligence</span><span class="tag">data analysis</span><span class="tag">tech careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/sql-superpowers-data-analysis-2026.html">SQL Superpowers: Level Up Your Data Analysis in 2026</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Go beyond basic SQL! Discover advanced techniques like window functions, CTEs, and more to transform your data analysis skills by 2026.</p>
-        <span class="tag">SQL</span><span class="tag">Data Analysis</span><span class="tag">Advanced SQL</span><span class="tag">Data Careers</span><span class="tag">2026 Tech Trends</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/ai-in-business-real-world-wins-2026.html">AI in Business: Real-World Wins in 2026</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Discover how Machine Learning is revolutionizing businesses in 2026 with practical applications and inspiring case studies. Learn what's next for aspiring tech pros!</p>
-        <span class="tag">Machine Learning</span><span class="tag">AI for Business</span><span class="tag">Data Analytics</span><span class="tag">Tech Careers</span><span class="tag">Case Studies</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/vector-databases-ai-2026.html">Vector Databases: AI's Secret Weapon for 2026?</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock the power of AI in 2026! Dive into vector databases, understand their role, and see why they're crucial for your tech career.</p>
-        <span class="tag">Vector Databases</span><span class="tag">AI</span><span class="tag">Data Analytics</span><span class="tag">Machine Learning</span><span class="tag">Tech Careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-storytelling-2026-analytics-narratives.html">Data Storytelling: Your Secret Weapon in 2026</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock the power of data! Learn how data storytelling in 2026 will transform analytics into compelling narratives that drive decisions. Your guide to becoming a data storyteller.</p>
-        <span class="tag">data storytelling</span><span class="tag">data analytics</span><span class="tag">AI</span><span class="tag">tech careers</span><span class="tag">2026 trends</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/python-data-analytics-2026-toolkit.html">Python for Data Analytics: Your 2026 Toolkit</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock your data analytics potential in 2026! Discover the essential Python libraries and frameworks you need to master.</p>
-        <span class="tag">Python</span><span class="tag">Data Analytics</span><span class="tag">AI</span><span class="tag">Machine Learning</span><span class="tag">Tech Careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/top-5-ai-analytics-tools-2026.html">Top 5 AI Analytics Tools for 2026: Unlock Your Data's Power</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Discover the top 5 AI-powered data analytics tools set to revolutionize insights and ROI in 2026. Boost your career and business with these game-changers.</p>
-        <span class="tag">AI</span><span class="tag">Data Analytics</span><span class="tag">Tech Tools</span><span class="tag">Future of Data</span><span class="tag">Career</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/generative-ai-data-analysts-use-cases-ethics.html">Generative AI for Data Analysts: Your New Superpower?</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Explore practical use cases and ethical considerations of Generative AI for data analysts. Unlock new efficiencies and insights with this powerful tech.</p>
-        <span class="tag">Generative AI</span><span class="tag">Data Analysis</span><span class="tag">AI Ethics</span><span class="tag">Tech Careers</span><span class="tag">Data Science</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/llms-business-intelligence-guide.html">Unlock Business Insights with LLMs: Your BI Power-Up</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Curious about how Large Language Models (LLMs) can revolutionize your Business Intelligence efforts? This step-by-step guide shows you how.</p>
-        <span class="tag">LLMs</span><span class="tag">Business Intelligence</span><span class="tag">Data Analytics</span><span class="tag">AI</span><span class="tag">Tech Careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/cloud-data-engineering-2026-skills.html">Cloud Data Engineering: Your 2026 Skillset Revealed!</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Thinking about a career in data engineering? Discover the essential cloud-native skills you'll need to master for 2026 and beyond.</p>
-        <span class="tag">data engineering</span><span class="tag">cloud computing</span><span class="tag">AI</span><span class="tag">data analytics</span><span class="tag">tech careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/ai-ethics-data-analytics-2026-trust-bias.html">AI Ethics in 2026: Your Data Analytics Trust Playbook</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Navigating ethical AI in data analytics by 2026. Learn how to build trust and actively combat bias for a more equitable tech future.</p>
-        <span class="tag">AI Ethics</span><span class="tag">Data Analytics</span><span class="tag">Bias</span><span class="tag">Trust</span><span class="tag">Future Tech</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/first-90-days-data-analyst-success.html">Your First 90 Days as a Data Analyst: Unlocking Success</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Just landed a data analyst role? Learn how to navigate your first 90 days, make a splash, and exceed expectations with these actionable tips.</p>
-        <span class="tag">Data Analyst</span><span class="tag">Career Advice</span><span class="tag">Tech Jobs</span><span class="tag">Onboarding</span><span class="tag">Data Analytics</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-analyst-interview-prep-2026.html">Ace Your Data Analyst Interview: The 2026 Prep Guide</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Crush your 2026 data analyst interview! This guide covers essential behavioral and technical questions, plus stats and actionable tips to land your dream role.</p>
-        <span class="tag">data analysis</span><span class="tag">interview prep</span><span class="tag">tech careers</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">AI</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-lakehouse-vs-warehouse-2026-analytics.html">Data Lakehouse vs. Warehouse: Your 2026 Analytics Playbook</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Confused about cloud data warehousing and data lakehouses for your 2026 analytics strategy? Let's break down the differences and help you choose the right path.</p>
-        <span class="tag">data warehousing</span><span class="tag">data lakehouse</span><span class="tag">analytics</span><span class="tag">cloud data</span><span class="tag">big data</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/career-pivot-data-analytics-2026.html">Data Pro in 2026? Pivot from [Your Field]!</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Dreaming of a data analytics career in 2026? Learn how to pivot from your current field with actionable steps, stats, and resources.</p>
-        <span class="tag">data analytics</span><span class="tag">career change</span><span class="tag">2026</span><span class="tag">tech jobs</span><span class="tag">upskilling</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/democratizing-data-low-code-no-code-analytics.html">Unlock Data Power: Low-Code/No-Code Analytics is Here!</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Discover how low-code/no-code analytics platforms are breaking down data barriers, empowering businesses, and creating new opportunities for aspiring data pros.</p>
-        <span class="tag">low-code</span><span class="tag">no-code</span><span class="tag">data analytics</span><span class="tag">business intelligence</span><span class="tag">AI</span><span class="tag">tech careers</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/real-time-data-streams-predictive-analytics-2026.html">Real-Time Data Streams: Your 2026 Predictive Power-Up</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock the future of predictive analytics with real-time data streams. Discover how this tech is reshaping industries by 2026.</p>
-        <span class="tag">real-time data</span><span class="tag">predictive analytics</span><span class="tag">data science</span><span class="tag">AI</span><span class="tag">tech trends</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-storytelling-tableau-power-bi.html">Data Storytelling: Make Your Insights Shine with Tableau & Power BI</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock the power of data with compelling narratives. Learn how Tableau & Power BI can transform your analysis into impactful stories.</p>
-        <span class="tag">Data Storytelling</span><span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">Data Visualization</span><span class="tag">Analytics</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/beyond-sql-data-analyst-programming-languages-2026.html">Beyond SQL: Your 2026 Data Analyst Toolkit</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>SQL is crucial, but what else do data analysts need in 2026? Discover essential programming languages to boost your career.</p>
-        <span class="tag">data analysis</span><span class="tag">programming languages</span><span class="tag">career advice</span><span class="tag">AI</span><span class="tag">Python</span><span class="tag">R</span>
-    </div>
-
-
-
-    <div class="post-card">
-        <h3><a href="posts/data-analyst-salary-negotiation-2026.html">Data Analyst Salaries 2026: Your Earning Power Playbook</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Unlock your earning potential! Discover proven salary negotiation strategies for data analysts in 2026 to maximize your compensation. Get the insider tips.</p>
-        <span class="tag">data analyst</span><span class="tag">salary negotiation</span><span class="tag">tech careers</span><span class="tag">2026 trends</span><span class="tag">AI</span>
-    </div>
-
-
-
-    <h2>Tech & AI News</h2>
-
-    <div class="post-card">
-        <h3><a href="posts/openai-gpt5-what-changes.html">GPT-5 is Here — What Actually Changes for Data Analysts</a></h3>
-        <div class="meta">April 2026 &middot; 5 min read</div>
-        <p>Cutting through the hype. What GPT-5's new capabilities mean for people who work with data daily — and what's still just marketing.</p>
-        <span class="tag">AI News</span><span class="tag">GPT-5</span><span class="tag">Opinion</span>
-    </div>
-
-    <div class="post-card">
-        <h3><a href="posts/ai-replacing-data-analysts.html">Will AI Replace Data Analysts? I Asked the Data.</a></h3>
-        <div class="meta">April 2026 &middot; 7 min read</div>
-        <p>Everyone has an opinion. I looked at job posting trends, salary data, and automation research to find out what's actually happening — not what Twitter thinks is happening.</p>
-        <span class="tag">AI News</span><span class="tag">Career</span><span class="tag">Job Market</span>
-    </div>
-
-    <div class="post-card">
-        <h3><a href="posts/cursor-vs-copilot-2026.html">Cursor vs GitHub Copilot in 2026: Which AI Coding Tool is Actually Worth It?</a></h3>
-        <div class="meta">April 2026 &middot; 6 min read</div>
-        <p>I used both for a month on real analytics projects. One saved me hours. The other mostly got in the way. Here's my honest take.</p>
-        <span class="tag">AI Tools</span><span class="tag">Productivity</span><span class="tag">Review</span>
-    </div>
-
-    <div class="post-card">
-        <h3><a href="posts/apple-intelligence-privacy.html">Apple Intelligence Just Got Serious — But Should You Trust It With Your Data?</a></h3>
-        <div class="meta">March 2026 &middot; 5 min read</div>
-        <p>Apple's on-device AI is impressive. But "private AI" is more complicated than the keynote made it sound. A breakdown of what's real and what's marketing.</p>
-        <span class="tag">Apple</span><span class="tag">Privacy</span><span class="tag">AI News</span>
-    </div>
-
-    <div id="about" class="about-box">
-        <div class="text">
-            <h3>About</h3>
-            <p>Graduate student in business analytics. Previously founded a D2C fragrance brand (2021-2024). Experience in retail analytics, R&D, and e-commerce operations. Published in IEEE. I work with Python, SQL, Tableau, and increasingly with LLMs and AutoML. Currently based in Boston.</p>
+    <div class="section-header" id="articles"><h2>Featured</h2><span class="section-tag">Editor's Pick</span></div>
+    <div class="post-grid">
+        <div class="post-card featured">
+            <div class="featured-content">
+                <div class="tag-row"><span class="tag tag-ai">AI</span><span class="tag tag-career">Career</span></div>
+                <h3><a href="posts/ai-replacing-data-analysts.html">Will AI Replace Data Analysts? I Asked the Data.</a></h3>
+                <p class="excerpt">Everyone has an opinion but nobody cites numbers. I pulled job posting trends, salary data, and automation research. Here's what's actually happening.</p>
+                <div class="meta">April 2026 · 7 min read</div>
+            </div>
+            <div class="featured-visual">&#128202;</div>
         </div>
     </div>
 
-    <div id="subscribe" class="subscribe">
-        <h3>Get new posts in your inbox</h3>
-        <p>No spam. One email when a new article drops.</p>
-        <input type="email" placeholder="your@email.com">
-        <button>Subscribe</button>
+    <div class="section-header"><h2>Latest</h2><span class="section-tag">Updated Daily</span></div>
+    <div class="post-grid">
+        <div class="post-card"><div class="tag-row"><span class="tag tag-data">Data</span><span class="tag tag-career">Career</span></div><h3><a href="posts/highest-paying-data-skills-2026-job-postings.html">Top Data Skills Paying Big in 2026</a></h3><p class="excerpt">We dug into job postings to reveal the tech talents commanding the highest salaries.</p><div class="meta">Apr 2026 · 7 min</div></div>
+        <div class="post-card"><div class="tag-row"><span class="tag tag-ai">AutoML</span><span class="tag tag-tools">Tools</span></div><h3><a href="posts/generative-ai-data-analyst-tools-2026.html">Gen AI for Analysts: 5 Tools to Supercharge Your Workflow</a></h3><p class="excerpt">The AI tools that are actually useful for day-to-day data work — not just hype.</p><div class="meta">Apr 2026 · 8 min</div></div>
+        <div class="post-card"><div class="tag-row"><span class="tag tag-sql">SQL</span><span class="tag tag-data">Free</span></div><h3><a href="posts/free-sql-learning-tools-2026.html">Master SQL for Free: Your 2026 Learning Roadmap</a></h3><p class="excerpt">The best free resources to go from zero to job-ready SQL skills.</p><div class="meta">Apr 2026 · 6 min</div></div>
+        <div class="post-card"><div class="tag-row"><span class="tag tag-ai">LLM</span><span class="tag tag-tools">Guide</span></div><h3><a href="posts/prompt-engineering-data-analysis-llms.html">Prompt Engineering: Your Data Analysis Superpower</a></h3><p class="excerpt">How to get actually useful output from ChatGPT, Claude, and Gemini for data work.</p><div class="meta">Apr 2026 · 7 min</div></div>
+        <div class="post-card"><div class="tag-row"><span class="tag tag-career">Career</span><span class="tag tag-data">Salary</span></div><h3><a href="posts/data-analyst-salary-negotiation-2026.html">Data Analyst Salary: Negotiate Like a Pro</a></h3><p class="excerpt">Proven negotiation tactics for data analysts. Know your worth and get paid for it.</p><div class="meta">Apr 2026 · 7 min</div></div>
+        <div class="post-card"><div class="tag-row"><span class="tag tag-tools">Cloud</span><span class="tag tag-data">Compare</span></div><h3><a href="posts/snowflake-vs-bigquery-vs-redshift-2026-showdown.html">Snowflake vs BigQuery vs Redshift: 2026 Showdown</a></h3><p class="excerpt">Choosing a cloud data warehouse? Here's the honest breakdown.</p><div class="meta">Apr 2026 · 8 min</div></div>
+        <div class="post-card"><div class="tag-row"><span class="tag tag-career">Remote</span><span class="tag tag-data">Jobs</span></div><h3><a href="posts/remote-data-analyst-jobs-guide.html">Unlock Remote Data Analyst Jobs: Your Guide</a></h3><p class="excerpt">Where to find them, how to land them, and what remote data work actually looks like.</p><div class="meta">Apr 2026 · 7 min</div></div>
+        <div class="post-card"><div class="tag-row"><span class="tag tag-career">Education</span><span class="tag tag-data">Review</span></div><h3><a href="posts/data-science-bootcamps-2026-worth-it.html">Data Science Bootcamps in 2026: Worth It?</a></h3><p class="excerpt">The truth about bootcamps — who they work for, who they don't, and what to do instead.</p><div class="meta">Apr 2026 · 7 min</div></div>
+        <div class="post-card"><div class="tag-row"><span class="tag tag-ai">AI</span><span class="tag tag-career">Trends</span></div><h3><a href="posts/data-engineering-2026-cloud-real-time-career.html">Data Engineering 2026: Cloud, Real-Time & Your Career</a></h3><p class="excerpt">The data engineering landscape is shifting fast. Here's what matters now.</p><div class="meta">Apr 2026 · 8 min</div></div>
     </div>
 
+    <div class="newsletter">
+        <h2>Stay ahead of the curve</h2>
+        <p>New articles, tool reviews, and career insights. Delivered weekly. No spam.</p>
+        <div class="newsletter-form"><input type="email" placeholder="your@email.com"><button>Subscribe</button></div>
+    </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 DataWithEla</p>
+    <p><a href="about.html">About</a><a href="tools.html">Tools</a><a href="cheatsheet.html">SQL Cheat Sheet</a></p>
+    <p style="margin-top: 12px;">&copy; 2026 DataWithEla. Built with curiosity and too much coffee.</p>
 </footer>
 
 </body>
