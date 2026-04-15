@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Honest comparisons of data analytics tools: Tableau vs Power BI, Python vs R, ChatGPT vs Claude vs Gemini, and more.">
+    <title>Tool Comparisons | DataWithEla</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; color: #1a1a1a; background: #fafaf8; line-height: 1.7; }
+        header { background: linear-gradient(135deg, #0f1b2d 0%, #1c3b2e 100%); color: white; padding: 60px 20px; text-align: center; }
+        header a { color: white; text-decoration: none; font-size: 1.2em; font-weight: bold; }
+        nav { background: #fff; border-bottom: 1px solid #e0e0e0; padding: 15px 20px; text-align: center; position: sticky; top: 0; z-index: 10; }
+        nav a { text-decoration: none; color: #0f1b2d; margin: 0 20px; font-size: 0.95em; font-weight: 600; }
+        nav a:hover { color: #1c3b2e; border-bottom: 2px solid #1c3b2e; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 2em; color: #0f1b2d; margin-bottom: 10px; }
+        .subtitle { color: #666; margin-bottom: 30px; }
+        .compare-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 25px; margin-bottom: 20px; }
+        .compare-card h2 { font-size: 1.3em; color: #0f1b2d; margin-bottom: 5px; }
+        .compare-card .verdict { color: #1c3b2e; font-weight: bold; margin: 8px 0; }
+        .compare-card p { color: #555; font-size: 0.95em; margin-bottom: 10px; }
+        .vs { display: flex; gap: 15px; margin: 15px 0; }
+        .vs-box { flex: 1; background: #f8f8f5; border-radius: 8px; padding: 15px; }
+        .vs-box h3 { font-size: 1em; margin-bottom: 8px; color: #0f1b2d; }
+        .vs-box ul { font-size: 0.85em; color: #555; padding-left: 18px; }
+        .vs-box li { margin-bottom: 4px; }
+        .best-for { background: #f0f4f0; padding: 10px 15px; border-radius: 6px; font-size: 0.9em; margin-top: 10px; }
+        .tag { display: inline-block; background: #f0f4f0; color: #1c3b2e; padding: 3px 10px; border-radius: 12px; font-size: 0.75em; margin-right: 4px; }
+        .aff-link { display: inline-block; background: #1c3b2e; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.9em; margin-top: 10px; }
+        .aff-link:hover { background: #2a5a42; }
+        footer { text-align: center; padding: 30px; color: #999; font-size: 0.85em; border-top: 1px solid #e8e8e8; }
+        footer a { color: #666; text-decoration: none; }
+        @media (max-width: 600px) { .vs { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+<header><a href="index.html">DataWithEla</a></header>
+<nav>
+    <a href="index.html">Articles</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tool Comparisons</a>
+    <a href="cheatsheet.html">Free SQL Cheat Sheet</a>
+</nav>
+
+<div class="container">
+
+<h1>Tool Comparisons</h1>
+<p class="subtitle">Honest, no-BS comparisons based on real usage. Updated for 2026.</p>
+
+<!-- Comparison 1 -->
+<div class="compare-card">
+    <h2>Tableau vs Power BI</h2>
+    <span class="tag">Visualization</span><span class="tag">BI</span><span class="tag">2026</span>
+    <div class="verdict">Verdict: Power BI for enterprise/cost, Tableau for exploration/beauty</div>
+    <div class="vs">
+        <div class="vs-box">
+            <h3>Tableau</h3>
+            <ul>
+                <li>Best-in-class visual exploration</li>
+                <li>Drag-and-drop is genuinely intuitive</li>
+                <li>Stronger community & public dashboards</li>
+                <li>Expensive ($75/user/month)</li>
+                <li>Steeper learning curve for LOD calcs</li>
+            </ul>
+        </div>
+        <div class="vs-box">
+            <h3>Power BI</h3>
+            <ul>
+                <li>Free desktop version (huge advantage)</li>
+                <li>Deep Microsoft ecosystem integration</li>
+                <li>DAX is powerful but ugly</li>
+                <li>Better for enterprise reporting</li>
+                <li>AI features (Copilot) improving fast</li>
+            </ul>
+        </div>
+    </div>
+    <div class="best-for"><strong>Best for beginners:</strong> Power BI (free). <strong>Best for portfolio:</strong> Tableau Public.</div>
+    <a href="https://www.tableau.com/trial" class="aff-link" target="_blank">Try Tableau Free</a>
+    <a href="https://powerbi.microsoft.com/desktop/" class="aff-link" target="_blank">Download Power BI Free</a>
+</div>
+
+<!-- Comparison 2 -->
+<div class="compare-card">
+    <h2>Python vs R for Data Analytics</h2>
+    <span class="tag">Programming</span><span class="tag">Career</span>
+    <div class="verdict">Verdict: Python for career versatility, R for pure statistics</div>
+    <div class="vs">
+        <div class="vs-box">
+            <h3>Python</h3>
+            <ul>
+                <li>More job postings (3:1 vs R)</li>
+                <li>ML/AI ecosystem (scikit-learn, PyTorch)</li>
+                <li>General purpose — web, automation, APIs</li>
+                <li>Pandas + Matplotlib for analytics</li>
+                <li>Easier to learn as first language</li>
+            </ul>
+        </div>
+        <div class="vs-box">
+            <h3>R</h3>
+            <ul>
+                <li>Built for statistics from day one</li>
+                <li>ggplot2 = best static visualizations</li>
+                <li>Stronger in academia/research</li>
+                <li>Tidyverse is elegant for data wrangling</li>
+                <li>Niche: biotech, pharma, economics</li>
+            </ul>
+        </div>
+    </div>
+    <div class="best-for"><strong>Learn first:</strong> Python. <strong>Add R if:</strong> you're going into research, biotech, or econometrics.</div>
+    <a href="https://www.datacamp.com/courses/intro-to-python-for-data-science" class="aff-link" target="_blank">Learn Python on DataCamp</a>
+</div>
+
+<!-- Comparison 3 -->
+<div class="compare-card">
+    <h2>ChatGPT vs Claude vs Gemini for Data Work</h2>
+    <span class="tag">AI</span><span class="tag">LLM</span><span class="tag">2026</span>
+    <div class="verdict">Verdict: Claude for analysis, ChatGPT for code, Gemini for free tier</div>
+    <div class="vs">
+        <div class="vs-box">
+            <h3>ChatGPT (GPT-5)</h3>
+            <ul>
+                <li>Best code generation</li>
+                <li>Advanced Data Analysis mode</li>
+                <li>Largest plugin ecosystem</li>
+                <li>$20/month for Pro</li>
+            </ul>
+        </div>
+        <div class="vs-box">
+            <h3>Claude</h3>
+            <ul>
+                <li>Best for long documents & reasoning</li>
+                <li>Most reliable for analysis</li>
+                <li>Less hallucination</li>
+                <li>$20/month for Pro</li>
+            </ul>
+        </div>
+        <div class="vs-box">
+            <h3>Gemini</h3>
+            <ul>
+                <li>Best free tier (generous limits)</li>
+                <li>Google Workspace integration</li>
+                <li>Multimodal (images, video)</li>
+                <li>Free / $20 for Advanced</li>
+            </ul>
+        </div>
+    </div>
+    <div class="best-for"><strong>On a budget:</strong> Gemini free. <strong>For serious work:</strong> Claude or ChatGPT Pro.</div>
+</div>
+
+<!-- Comparison 4 -->
+<div class="compare-card">
+    <h2>Excel vs SQL vs Python: When to Use What</h2>
+    <span class="tag">Fundamentals</span><span class="tag">Career</span>
+    <div class="verdict">Verdict: All three. Know when to use which.</div>
+    <div class="vs">
+        <div class="vs-box">
+            <h3>Excel</h3>
+            <ul>
+                <li>Quick ad-hoc analysis</li>
+                <li>Under 100K rows</li>
+                <li>Stakeholders can open it</li>
+                <li>Pivot tables are fast</li>
+            </ul>
+        </div>
+        <div class="vs-box">
+            <h3>SQL</h3>
+            <ul>
+                <li>Querying databases directly</li>
+                <li>Any data size</li>
+                <li>Joins, aggregations at scale</li>
+                <li>Every analyst job requires it</li>
+            </ul>
+        </div>
+        <div class="vs-box">
+            <h3>Python</h3>
+            <ul>
+                <li>Complex transformations</li>
+                <li>ML/statistical modeling</li>
+                <li>Automation & pipelines</li>
+                <li>Reproducible analysis</li>
+            </ul>
+        </div>
+    </div>
+    <div class="best-for"><strong>Rule of thumb:</strong> Start in SQL, explore in Python, present in Excel/BI tool.</div>
+</div>
+
+<!-- Comparison 5 -->
+<div class="compare-card">
+    <h2>Top Data Analytics Courses (2026)</h2>
+    <span class="tag">Learning</span><span class="tag">Courses</span>
+    <div class="verdict">Verdict: Depends on your level and budget</div>
+    <div class="vs">
+        <div class="vs-box">
+            <h3>Free / Budget</h3>
+            <ul>
+                <li>Google Data Analytics Certificate ($0 on Coursera trial)</li>
+                <li>Khan Academy SQL</li>
+                <li>freeCodeCamp Data Analysis with Python</li>
+                <li>Mode Analytics SQL Tutorial</li>
+            </ul>
+        </div>
+        <div class="vs-box">
+            <h3>Paid / Premium</h3>
+            <ul>
+                <li>DataCamp ($25/mo — best for SQL + Python)</li>
+                <li>Coursera IBM Data Science Pro Certificate</li>
+                <li>Maven Analytics (great for BI)</li>
+                <li>365 Data Science (comprehensive)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="best-for"><strong>Best ROI:</strong> Google Certificate (free) + DataCamp ($25/mo) covers 90% of what you need.</div>
+    <a href="https://www.coursera.org/professional-certificates/google-data-analytics" class="aff-link" target="_blank">Google Certificate (Free Trial)</a>
+    <a href="https://www.datacamp.com/" class="aff-link" target="_blank">Try DataCamp</a>
+</div>
+
+</div>
+
+<footer>
+    <p><a href="index.html">&larr; Back to DataWithEla</a> &middot; &copy; 2026</p>
+</footer>
+
+</body>
+</html>
