@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data analytics career guides, SQL tutorials, AI/ML insights. Break into data science with practical advice from someone who's done it.">
+    <title>DataWithEla — Data Analytics Career & AI Insights</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; color: #1a1a1a; background: #fafaf8; line-height: 1.7; }
+
+        header {
+            background: linear-gradient(135deg, #0f1b2d 0%, #1c3b2e 100%);
+            color: white; padding: 80px 20px; text-align: center;
+        }
+        header h1 { font-size: 2.8em; letter-spacing: -1px; margin-bottom: 10px; }
+        header p { font-size: 1.15em; opacity: 0.85; max-width: 600px; margin: 0 auto; }
+
+        nav {
+            background: #fff; border-bottom: 1px solid #e0e0e0;
+            padding: 15px 20px; text-align: center; position: sticky; top: 0; z-index: 10;
+        }
+        nav a { text-decoration: none; color: #0f1b2d; margin: 0 20px; font-size: 0.95em; font-weight: 600; }
+        nav a:hover { color: #1c3b2e; border-bottom: 2px solid #1c3b2e; padding-bottom: 2px; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+
+        .intro { font-size: 1.1em; color: #444; margin-bottom: 40px; border-left: 4px solid #1c3b2e; padding-left: 20px; }
+
+        h2 { font-size: 1.6em; color: #0f1b2d; margin: 40px 0 20px; }
+
+        .post-card {
+            background: #fff; border: 1px solid #e8e8e8; border-radius: 8px;
+            padding: 30px; margin-bottom: 20px; transition: box-shadow 0.2s;
+        }
+        .post-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .post-card h3 { font-size: 1.3em; margin-bottom: 8px; }
+        .post-card h3 a { text-decoration: none; color: #0f1b2d; }
+        .post-card h3 a:hover { color: #1c3b2e; }
+        .post-card .meta { font-size: 0.85em; color: #888; margin-bottom: 10px; }
+        .post-card p { color: #555; font-size: 0.95em; }
+        .tag { display: inline-block; background: #f0f4f0; color: #1c3b2e; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+
+        .about-box {
+            background: #fff; border: 1px solid #e8e8e8; border-radius: 8px;
+            padding: 30px; margin: 40px 0; display: flex; gap: 20px; align-items: start;
+        }
+        .about-box .text h3 { margin-bottom: 8px; }
+        .about-box .text p { color: #555; font-size: 0.95em; }
+
+        .subscribe {
+            background: #0f1b2d; color: white; border-radius: 8px;
+            padding: 40px; text-align: center; margin: 40px 0;
+        }
+        .subscribe h3 { font-size: 1.4em; margin-bottom: 10px; }
+        .subscribe p { opacity: 0.8; margin-bottom: 20px; }
+        .subscribe input {
+            padding: 12px 16px; border: none; border-radius: 6px; width: 250px;
+            font-size: 1em; margin-right: 8px;
+        }
+        .subscribe button {
+            padding: 12px 24px; background: #1c3b2e; color: white; border: none;
+            border-radius: 6px; font-size: 1em; cursor: pointer; font-weight: 600;
+        }
+        .subscribe button:hover { background: #2a5a42; }
+
+        footer {
+            text-align: center; padding: 30px 20px; color: #999; font-size: 0.85em;
+            border-top: 1px solid #e8e8e8; margin-top: 40px;
+        }
+        footer a { color: #666; text-decoration: none; margin: 0 10px; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2em; }
+            .subscribe input { width: 100%; margin-bottom: 10px; }
+            .about-box { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>DataWithEla</h1>
+    <p>Practical data analytics, AI, and career advice — from someone building the career in real time.</p>
+</header>
+
+<nav>
+    <a href="#articles">Articles</a>
+    <a href="#about">About</a>
+    <a href="#subscribe">Subscribe</a>
+</nav>
+
+<div class="container">
+
+    <p class="intro">
+        Business analytics grad student, former D2C brand founder, and someone who learned SQL, Python, and machine learning by doing, not just studying. This blog is where I share what actually works.
+    </p>
+
+    <h2 id="articles">Latest Articles</h2>
+
+    <div class="post-card">
+        <h3><a href="posts/automl-flaml-vs-autogluon.html">I Tested Two AutoML Frameworks So You Don't Have To: FLAML vs AutoGluon</a></h3>
+        <div class="meta">April 2026 &middot; 8 min read</div>
+        <p>I ran both frameworks on the same credit risk dataset with a 300-second budget. Here's what surprised me about which one won — and why the answer depends on what you're optimizing for.</p>
+        <span class="tag">AutoML</span><span class="tag">Python</span><span class="tag">Machine Learning</span>
+    </div>
+
+    <div class="post-card">
+        <h3><a href="posts/sql-count-trap.html">The SQL Trap That Will Cost You Points on Every Exam (COUNT(*) vs COUNT(column))</a></h3>
+        <div class="meta">April 2026 &middot; 5 min read</div>
+        <p>LEFT JOIN + COUNT(*) silently gives you wrong answers. I learned this the hard way. Here's the one rule you need to remember.</p>
+        <span class="tag">SQL</span><span class="tag">Data Analytics</span><span class="tag">Career</span>
+    </div>
+
+
+    <div class="post-card">
+        <h3><a href="posts/f1-student-data-career.html">Getting a Data Job as an F-1 Student: What Nobody Tells You</a></h3>
+        <div class="meta">April 2026 &middot; 7 min read</div>
+        <p>H-1B sponsorship, OPT timing, which companies actually hire internationals, and how to position yourself when 90% of applicants are domestic. Real talk from someone going through it.</p>
+        <span class="tag">Career</span><span class="tag">F-1 Visa</span><span class="tag">Job Search</span>
+    </div>
+
+    <div class="post-card">
+        <h3><a href="posts/dtc-founder-to-analyst.html">What Running a D2C Brand Taught Me About Data That School Never Could</a></h3>
+        <div class="meta">March 2026 &middot; 6 min read</div>
+        <p>I stared at my own conversion rates at 2 AM. I watched abandoned carts spike after a pricing change. Three years of running my own brand taught me that data only matters when it changes a decision.</p>
+        <span class="tag">E-commerce</span><span class="tag">Startup</span><span class="tag">Analytics</span>
+    </div>
+
+    <h2>Tech & AI News</h2>
+
+    <div class="post-card">
+        <h3><a href="posts/openai-gpt5-what-changes.html">GPT-5 is Here — What Actually Changes for Data Analysts</a></h3>
+        <div class="meta">April 2026 &middot; 5 min read</div>
+        <p>Cutting through the hype. What GPT-5's new capabilities mean for people who work with data daily — and what's still just marketing.</p>
+        <span class="tag">AI News</span><span class="tag">GPT-5</span><span class="tag">Opinion</span>
+    </div>
+
+    <div class="post-card">
+        <h3><a href="posts/ai-replacing-data-analysts.html">Will AI Replace Data Analysts? I Asked the Data.</a></h3>
+        <div class="meta">April 2026 &middot; 7 min read</div>
+        <p>Everyone has an opinion. I looked at job posting trends, salary data, and automation research to find out what's actually happening — not what Twitter thinks is happening.</p>
+        <span class="tag">AI News</span><span class="tag">Career</span><span class="tag">Job Market</span>
+    </div>
+
+    <div class="post-card">
+        <h3><a href="posts/cursor-vs-copilot-2026.html">Cursor vs GitHub Copilot in 2026: Which AI Coding Tool is Actually Worth It?</a></h3>
+        <div class="meta">April 2026 &middot; 6 min read</div>
+        <p>I used both for a month on real analytics projects. One saved me hours. The other mostly got in the way. Here's my honest take.</p>
+        <span class="tag">AI Tools</span><span class="tag">Productivity</span><span class="tag">Review</span>
+    </div>
+
+    <div class="post-card">
+        <h3><a href="posts/apple-intelligence-privacy.html">Apple Intelligence Just Got Serious — But Should You Trust It With Your Data?</a></h3>
+        <div class="meta">March 2026 &middot; 5 min read</div>
+        <p>Apple's on-device AI is impressive. But "private AI" is more complicated than the keynote made it sound. A breakdown of what's real and what's marketing.</p>
+        <span class="tag">Apple</span><span class="tag">Privacy</span><span class="tag">AI News</span>
+    </div>
+
+    <div id="about" class="about-box">
+        <div class="text">
+            <h3>About</h3>
+            <p>Graduate student in business analytics. Previously founded a D2C fragrance brand (2021-2024). Experience in retail analytics, R&D, and e-commerce operations. Published in IEEE. I work with Python, SQL, Tableau, and increasingly with LLMs and AutoML. Currently based in Boston.</p>
+        </div>
+    </div>
+
+    <div id="subscribe" class="subscribe">
+        <h3>Get new posts in your inbox</h3>
+        <p>No spam. One email when a new article drops.</p>
+        <input type="email" placeholder="your@email.com">
+        <button>Subscribe</button>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 DataWithEla</p>
+</footer>
+
+</body>
+</html>
