@@ -49,6 +49,13 @@ Return as JSON:
   "content_html": "full article body in HTML (use h2, h3, p, ul, li, strong, em tags)"
 }}
 
+At the end of the article, include a "Recommended Resources" section with 2-3 links to relevant learning platforms:
+- For SQL topics: link to DataCamp (https://www.datacamp.com) and Mode Analytics (https://mode.com/sql-tutorial)
+- For Python topics: link to DataCamp and Coursera Google Data Analytics Certificate (https://www.coursera.org/professional-certificates/google-data-analytics)
+- For AI/ML topics: link to DeepLearning.AI (https://www.deeplearning.ai) and fast.ai (https://www.fast.ai)
+- For career topics: link to Coursera and LinkedIn Learning
+Make these natural recommendations, not spammy.
+
 Return ONLY valid JSON."""
 
     response = client.chat.completions.create(
